@@ -28,24 +28,25 @@ var contacts = [
 
 
 function lookUpProfile(firstName, prop){
+
 // Only change code below this line
+var result;
   for(var i=0;i<contacts.length;i++){
-    if(contacts[i].firstName==firstName &&   contacts[i].hasOwnProperty(prop)){
-	   // console.log(contacts[i].firstName);
-	    //console.log(contacts[i].prop);
-     return	contacts[i].prop;
-    }else if(contacts[i].firstName!=firstName){
-	return "No such contact";
-    }else if(!contacts[i].hasOwnProperty(prop)){
-     	return  "No such property";
+      if(contacts[i].firstName!==firstName){
+           result= "No such contact";
+      }
+       if (!contacts[i].hasOwnProperty(prop)){
+        result= "No such property";
+      }
+
+    if(contacts[i].firstName===firstName && contacts[i].hasOwnProperty(prop)){
+     return	contacts[i][prop];
     }
   }
-return result;
+  return result;
 // Only change code above this line
 }
-
 // Change these values to test your function
 
-lookUpProfile("Akira", "likes");
-
-
+var result =lookUpProfile("Bob", "number");
+console.log(result);
